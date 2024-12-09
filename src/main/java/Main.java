@@ -1,15 +1,31 @@
 public class Main {
     public static void main(String[] args) {
-        // Example tree structure
+        // Example tree structure with more recommendations
         TreeNode root = new TreeNode("Do you want a loan?");
+
+        // Personal use branch
         root.left = new TreeNode("Is it for personal use?");
-        root.right = new TreeNode("Is it for a mortgage?");
         root.left.left = new TreeNode("Do you have a steady income?");
         root.left.right = new TreeNode("Do you have a good credit score?");
+
+        // Mortgage branch
+        root.right = new TreeNode("Is it for a mortgage?");
         root.right.left = new TreeNode("What is the value of the property?");
         root.right.right = new TreeNode("Do you have a down payment?");
+
+        // Personal loan recommendations
         root.left.left.left = new TreeNode("Recommendation: Personal Loan");
         root.left.right.left = new TreeNode("Recommendation: Improve Credit Score First");
+
+        // Mortgage recommendations
+        root.right.left.left = new TreeNode("Recommendation: Property Loan");
+        root.right.left.right = new TreeNode("Recommendation: Consider Refinancing");
+        root.right.right.left = new TreeNode("Recommendation: Save for Down Payment");
+        root.right.right.right = new TreeNode("Recommendation: Seek Financial Advisor");
+
+        // Additional recommendations for personal loan
+        root.left.left.right = new TreeNode("Recommendation: Improve Income First");
+        root.left.right.right = new TreeNode("Recommendation: Explore Debt Consolidation");
 
         // Calculate the maximum depth of the tree
         int depth = DecisionTree.maxDepth(root);
